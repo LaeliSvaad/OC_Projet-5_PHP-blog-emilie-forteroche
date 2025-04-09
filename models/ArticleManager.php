@@ -11,8 +11,10 @@ class ArticleManager extends AbstractEntityManager
      */
     public function getAllArticles() : array
     {
-        $sql = "SELECT * FROM article";
+        $sql = "SELECT article.*, COUNT(comment.content) AS commentsNumber FROM article LEFT JOIN comment ON article.id = comment.id_article GROUP BY article.id";
+
         $result = $this->db->query($sql);
+
         $articles = [];
 
         while ($article = $result->fetch()) {

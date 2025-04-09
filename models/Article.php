@@ -9,6 +9,8 @@
     private int $idUser;
     private string $title = "";
     private string $content = "";
+    private int $views;
+    private int $commentsNumber = 0;
     private ?DateTime $dateCreation = null;
     private ?DateTime $dateUpdate = null;  
 
@@ -78,6 +80,41 @@
         }
         return $this->content;
     }
+
+     /**
+      * Setter pour le nombre de vues.
+      * @param int $views
+      */
+    public function setViews(int $views) : void
+    {
+        $this->views = $views;
+    }
+
+     /**
+      * Getter pour le nombre de vues.
+      * @return int
+      */
+    public function getViews() : int
+    {
+        return $this->views;
+    }
+     /**
+      * Setter pour le nombre de commentaires de l'article.
+      * @param int $commentsNumber
+      */
+     public function setCommentsNumber(int $commentsNumber) : void
+     {
+         $this->commentsNumber = $commentsNumber;
+     }
+
+     /**
+      * Getter pour le nombre de commentaires de l'article.
+      * @return int
+      */
+     public function getCommentsNumber() : int
+     {
+         return $this->commentsNumber;
+     }
 
     /**
      * Setter pour la date de création. Si la date est une string, on la convertit en DateTime.
