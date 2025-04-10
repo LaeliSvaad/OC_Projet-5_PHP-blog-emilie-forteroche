@@ -60,18 +60,28 @@ try {
             break;
 
         case 'showUpdateArticleForm':
-            $adminController = new AdminController();
-            $adminController->showUpdateArticleForm();
+            $editionController = new EditionController();
+            $editionController->showUpdateArticleForm();
             break;
 
         case 'updateArticle': 
-            $adminController = new AdminController();
-            $adminController->updateArticle();
+            $editionController = new EditionController();
+            $editionController->updateArticle();
             break;
 
         case 'deleteArticle':
-            $adminController = new AdminController();
-            $adminController->deleteArticle();
+            $editionController = new EditionController();
+            $editionController->deleteArticle();
+            break;
+
+        case 'monitorArticles':
+            $monitoringController = new MonitoringController();
+            $monitoringController->showMonitoring();
+            break;
+
+        case 'manageArticles':
+            $editionController = new EditionController();
+            $editionController->editArticles();
             break;
 
         default:

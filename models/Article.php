@@ -9,7 +9,7 @@
     private int $idUser;
     private string $title = "";
     private string $content = "";
-    private int $views;
+    private int $views = 0;
     private int $commentsNumber = 0;
     private ?DateTime $dateCreation = null;
     private ?DateTime $dateUpdate = null;  
