@@ -7,11 +7,18 @@ class ArticleManager extends AbstractEntityManager
 {
     /**
      * Récupère tous les articles.
+     * @param string $sort : permet de demander à l'envoi de la requête un tri selon le nombre de vues, commentaires, date de publication, ou titre.
+     * @param string $order : permet de demander à l'envoi de la requête un ordre de tri croissant ou décroissant.
      * @return array : un tableau d'objets Article.
      */
-    public function getAllArticles() : array
+    public function getAllArticles(?string $sort, ?string $order) : array
     {
-        $sql = "SELECT article.*, COUNT(comment.content) AS commentsNumber FROM article LEFT JOIN comment ON article.id = comment.id_article GROUP BY article.id";
+        if($order === "ASC")
+            $sql = "SELECT article.*, COUNT(comment.content) AS commentsNumber FROM article LEFT JOIN comment ON article.id = comment.id_article GROUP BY article.id ORDER BY $sort ASC";
+        else if($order === "DESC")
+            $sql = "SELECT article.*, COUNT(comment.content) AS commentsNumber FROM article LEFT JOIN comment ON article.id = comment.id_article GROUP BY article.id ORDER BY $sort DESC";
+        else
+            $sql = "SELECT article.*, COUNT(comment.content) AS commentsNumber FROM article LEFT JOIN comment ON article.id = comment.id_article GROUP BY article.id";
 
         $result = $this->db->query($sql);
 

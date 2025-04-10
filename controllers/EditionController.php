@@ -15,7 +15,7 @@ class EditionController {
 
     // On récupère les articles.
         $articleManager = new ArticleManager();
-        $articles = $articleManager->getAllArticles();
+        $articles = $articleManager->getAllArticles(NULL, NULL);
 
     // On affiche la page d'administration.
         $view = new View("Administration");

@@ -337,6 +337,24 @@ a.info {
     border: 1px solid var(--backgroundColor);
 }
 
+.monitoring th{
+    background-color: var(--commentColor);
+    color: white;
+}
+
+.monitoring th, .monitoring td{
+    padding: 20px;
+    border: 1px solid var(--commentColor);
+}
+
+.monitoringLine:nth-child(even){
+   background-color: var(--commentPaleColor);
+}
+
+.monitoringLine:nth-child(odd){
+    background-color: var(--backgroundColor);
+}
+
 /** 
  * Footer global de la page.
  */
@@ -345,7 +363,7 @@ footer {
     bottom: 0;
     display: flex;
     justify-content: center;
-    width: 100%;;
+    width: 100%;
     padding: 20px;
     color: white;
     background-color: var(--headerColor);
