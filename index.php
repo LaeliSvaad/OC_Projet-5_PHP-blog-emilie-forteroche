@@ -84,6 +84,16 @@ try {
             $editionController->editArticles();
             break;
 
+        case 'moderateComments':
+            $commentController = new CommentController();
+            $commentController->showComments();
+            break;
+
+        case 'deleteComment':
+            $commentController = new CommentController();
+            $commentController->deleteComment();
+            break;
+
         default:
             throw new Exception("La page demandée n'existe pas.");
     }

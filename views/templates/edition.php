@@ -13,6 +13,7 @@
             <div class="content"><?= $article->getContent(200) ?></div>
             <div><a class="submit" href="index.php?action=showUpdateArticleForm&id=<?= $article->getId() ?>">Modifier</a></div>
             <div><a class="submit" href="index.php?action=deleteArticle&id=<?= $article->getId() ?>" <?= Utils::askConfirmation("Êtes-vous sûr de vouloir supprimer cet article ?") ?> >Supprimer</a></div>
+            <div><a class="submit" href="index.php?action=moderateComments&id=<?= $article->getId() ?>" >Modérer les commentaires</a></div>
         </div>
     <?php } ?>
 </div>

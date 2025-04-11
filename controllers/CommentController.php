@@ -44,4 +44,23 @@ class CommentController
         // On redirige vers la page de l'article.
         Utils::redirect("showArticle", ['id' => $idArticle]);
     }
+
+    public function showComments() : void{
+        $id = Utils::request("id");
+        $commentManager = new CommentManager();
+        $comments = $commentManager->getAllCommentsByArticleId($id);
+
+        $view = new View("Moderation des commentaires");
+        $view->render("moderateComments", ['comments' => $comments]);
+    }
+    public function deleteComment() : void{
+        $id = Utils::request("id");
+
+        $commentManager = new CommentManager();
+
+        if($commentManager->deleteComment($id))
+            Utils::redirect("manageArticles");
+        else
+            throw new Exception("Erreur lors de la suppression du commentaire.");
+    }
 }
