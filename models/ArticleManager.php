@@ -19,7 +19,6 @@ class ArticleManager extends AbstractEntityManager
             $sql = "SELECT article.*, COUNT(comment.content) AS commentsNumber FROM article LEFT JOIN comment ON article.id = comment.id_article GROUP BY article.id ORDER BY $sort DESC";
         else
             $sql = "SELECT article.*, COUNT(comment.content) AS commentsNumber FROM article LEFT JOIN comment ON article.id = comment.id_article GROUP BY article.id";
-
         $result = $this->db->query($sql);
 
         $articles = [];

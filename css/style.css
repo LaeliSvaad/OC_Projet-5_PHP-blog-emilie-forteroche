@@ -309,8 +309,8 @@ a.info {
 
 .adminArticle {
     margin-bottom: 20px;
-    background-color: var(--commentPaleColor);
-    color: white;
+    border: 1px solid var(--commentColor);
+    background-color: var(--backgroundColor);
 }
 
 .articleLine {
@@ -330,6 +330,7 @@ a.info {
 
 .articleLine .content {
     flex-grow: 1;
+    min-width: 365px;
 }
 
 .articleLine > div {
@@ -337,22 +338,43 @@ a.info {
     border: 1px solid var(--backgroundColor);
 }
 
-.monitoring th{
+th{
     background-color: var(--commentColor);
     color: white;
 }
 
-.monitoring th, .monitoring td{
+td{
+    color: black;
+}
+
+th, td {
     padding: 20px;
     border: 1px solid var(--commentColor);
 }
 
-.monitoringLine:nth-child(even){
+.tableLine:nth-child(even) {
    background-color: var(--commentPaleColor);
 }
 
-.monitoringLine:nth-child(odd){
+.tableLine:nth-child(odd) {
     background-color: var(--backgroundColor);
+
+}
+
+.theadContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.theadContent span, .theadContent a{
+    margin: 5px;
+}
+
+.sortIcon {
+    width: 25px;
 }
 
 /** 

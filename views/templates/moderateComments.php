@@ -4,17 +4,17 @@
 if (empty($comments)) {
     echo '<p class="info">Aucun commentaire pour cet article.</p>';
 } else {
-    echo '<ul>';
+    echo '<table class="commentsTable">';
+    echo '<tr><th>Pseudo</th><th>Date</th><th>Commentaire</th><th>Action</th></tr>';
     foreach ($comments as $comment) {
-        echo '<li>';
-        echo '  <div class="detailComment">';
-        echo '      <h3 class="info">Le ' . Utils::convertDateToFrenchFormat($comment->getDateCreation()) . ", " . Utils::format($comment->getPseudo()) . ' a écrit :</h3>';
-        echo '      <p class="content">' . Utils::format($comment->getContent()) . '</p>';
-        echo '  </div>';
-        echo '  <p><a class="submit" href="index.php?action=deleteComment&id=' . $comment->getId() . '"> Supprimer</a></p>';
-        echo '</li>';
+        echo '<tr class="tableLine">';
+        echo '<td>'. Utils::format($comment->getPseudo()) .'</td>';
+        echo '<td>' . Utils::convertDateToFrenchFormat($comment->getDateCreation()) . '</td>';
+        echo '<td>' . Utils::format($comment->getContent()) . '</td>';
+        echo '<td><a class="submit" href="index.php?action=deleteComment&id=' . $comment->getId() . '"> Supprimer</a></td>';
+        echo '</tr>';
     }
-    echo '</ul>';
+    echo '</table>';
 }
 ?>
 </div>

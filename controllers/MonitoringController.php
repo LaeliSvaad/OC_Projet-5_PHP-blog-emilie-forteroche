@@ -11,9 +11,9 @@ class MonitoringController{
     {
         // On vérifie que l'utilisateur est connecté.
        /* $this->checkIfUserIsConnected();*/
-        $sort = Utils::request('sort', '');
+        $sort = Utils::request('sort', 'date_creation');
 
-        $order = Utils::request('order', '');
+        $order = Utils::request('order', 'DESC');
 
         // On récupère les articles.
         $articleManager = new ArticleManager();
@@ -22,7 +22,9 @@ class MonitoringController{
         // On affiche la page de monitoring.
         $view = new View("Monitoring");
         $view->render("monitoring", [
-            'articles' => $articles
+            'articles' => $articles,
+            'order' => $order,
+            'sort' => $sort
         ]);
     }
 }
