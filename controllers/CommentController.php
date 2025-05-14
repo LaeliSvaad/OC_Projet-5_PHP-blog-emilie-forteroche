@@ -55,11 +55,10 @@ class CommentController
     }
     public function deleteComment() : void{
         $id = Utils::request("id");
-
         $commentManager = new CommentManager();
-
+        $params = Utils::getPreviousURLParams();
         if($commentManager->deleteComment($id))
-            Utils::redirect("manageArticles");
+            Utils::redirect($params[0], $params[1]);
         else
             throw new Exception("Erreur lors de la suppression du commentaire.");
     }

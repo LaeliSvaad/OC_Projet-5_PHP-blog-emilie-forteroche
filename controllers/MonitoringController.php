@@ -9,10 +9,7 @@ class MonitoringController{
 
     public function showMonitoring() : void
     {
-        // On vérifie que l'utilisateur est connecté.
-       /* $this->checkIfUserIsConnected();*/
         $sort = Utils::request('sort', 'date_creation');
-
         $order = Utils::request('order', 'DESC');
 
         // On récupère les articles.

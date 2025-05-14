@@ -32,6 +32,12 @@
                 echo '      <h3 class="info">Le ' . Utils::convertDateToFrenchFormat($comment->getDateCreation()) . ", " . Utils::format($comment->getPseudo()) . ' a écrit :</h3>';
                 echo '      <p class="content">' . Utils::format($comment->getContent()) . '</p>';
                 echo '  </div>';
+                if (isset($_SESSION['user'])){
+                    echo '<div><a class="submit" href="index.php?action=deleteComment&id=' . $comment->getId() . '"';
+                    echo Utils::askConfirmation("Êtes-vous sûr de vouloir supprimer ce commentaire ?");
+                    echo '>Supprimer</a>';
+                    echo '</div>';
+                }
                 echo '</li>';
             }               
             echo '</ul>';

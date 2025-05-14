@@ -75,6 +75,40 @@ class Utils {
     }
 
     /**
+     * Cette méthode permet de récupérer les paramètres de l'URL de la page précédente, pour une utilisation facile avec la méthode redirect.
+     * @return Array : un tableau contenant à l'index 0 la valeur du paramètre "action" de l'url, et à l'index 1 un tableau associatif contenant le reste des paramètres.
+     */
+    public static function getPreviousURLParams() : Array{
+
+        //On récupère les composants de l'URL de la page précédente dans un tableau
+       $url_array = parse_url($_SERVER['HTTP_REFERER']);
+
+       //Traitement de la chaîne de caractères concernant les paramètres de l'URL: chaque paramètre GET est isolé dans un tableau
+       $params_array = explode("&", $url_array["query"]);
+
+       //On récupère la valeur du paramètre action pour pouvoir la passer en paramètre de la méthode statique
+       $action = $params_array[0];
+       array_splice($params_array, 0, 1);
+       $paramsAssoc = Utils::numericToAssociativeArray($params_array);
+       $action = explode("=", $action);
+       return [$action[1], $paramsAssoc];
+    }
+
+    /**
+     * Cette méthode permet de convertir le tableau numérique de paramètres d'une url en tableau associatif,
+     * rendant possible son utilisation dans la méthode redirect ci-dessus.
+     * @param Array $array : le tableau indexé contenant les paramètres.
+     * @return Array : le tableau associatif des paramètres de l'url: $paramName => $paramValue.
+     */
+    private static function numericToAssociativeArray(Array $array) : Array{
+        $len = count($array);
+        for ($i = 0; $i < $len; $i++) {
+            $currentLine = explode("=", $array[$i]);
+            $associativeArray[$currentLine[0]] = $currentLine[1];
+        }
+        return $associativeArray;
+    }
+    /**
      * Cette méthode permet de récupérer une variable de la superglobale $_REQUEST.
      * Si cette variable n'est pas définie, on retourne la valeur null (par défaut)
      * ou celle qui est passée en paramètre si elle existe.
