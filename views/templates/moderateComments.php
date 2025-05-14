@@ -11,7 +11,9 @@ if (empty($comments)) {
         echo '<td>'. Utils::format($comment->getPseudo()) .'</td>';
         echo '<td>' . Utils::convertDateToFrenchFormat($comment->getDateCreation()) . '</td>';
         echo '<td>' . Utils::format($comment->getContent()) . '</td>';
-        echo '<td><a class="submit" href="index.php?action=deleteComment&id=' . $comment->getId() . '"> Supprimer</a></td>';
+        echo '<td><a class="submit" href="index.php?action=deleteComment&id=' . $comment->getId() . '"';
+        echo Utils::askConfirmation("Êtes-vous sûr de vouloir supprimer ce commentaire ?");
+        echo '>Supprimer</a></td>';
         echo '</tr>';
     }
     echo '</table>';
