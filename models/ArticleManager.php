@@ -91,6 +91,19 @@ class ArticleManager extends AbstractEntityManager
     }
 
     /**
+     * Modifie la valeur du compteur de vue d'un article en ajoutant +1 à la valeur existante.
+     * @param Article $article  : l'article dont le compteur de vues doit être incrémenté.
+     * @return void
+     */
+    public function updateArticleViewsCounter(Article $article) : void
+    {
+        $sql = "UPDATE article SET views_counter = views_counter + 1 WHERE id = :id";
+        $this->db->query($sql, [
+            'id' => $article->getId()
+        ]);
+    }
+
+    /**
      * Supprime un article.
      * @param int $id : l'id de l'article à supprimer.
      * @return void

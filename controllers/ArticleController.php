@@ -35,6 +35,7 @@ class ArticleController
         $comments = $commentManager->getAllCommentsByArticleId($id);
 
         $view = new View($article->getTitle());
+        $articleManager->updateArticleViewsCounter($article);
         $view->render("detailArticle", ['article' => $article, 'comments' => $comments]);
     }
 
