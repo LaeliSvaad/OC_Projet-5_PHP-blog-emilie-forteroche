@@ -9,7 +9,7 @@
     private int $idUser;
     private string $title = "";
     private string $content = "";
-    private int $views = 0;
+    private int $viewsCounter = 0;
     private int $commentsNumber = 0;
     private ?DateTime $dateCreation = null;
     private ?DateTime $dateUpdate = null;  
@@ -22,7 +22,6 @@
     {
         $this->idUser = $idUser;
     }
-
     /**
      * Getter pour l'id de l'utilisateur.
      * @return int
@@ -31,7 +30,6 @@
     {
         return $this->idUser;
     }
-
     /**
      * Setter pour le titre.
      * @param string $title
@@ -40,7 +38,6 @@
     {
         $this->title = $title;
     }
-
     /**
      * Getter pour le titre.
      * @return string
@@ -49,7 +46,6 @@
     {
         return $this->title;
     }
-
     /**
      * Setter pour le contenu.
      * @param string $content
@@ -58,8 +54,6 @@
     {
         $this->content = $content;
     }
-
-    
     /**
      * Getter pour le contenu.
      * Retourne les $length premiers caractères du contenu.
@@ -80,23 +74,22 @@
         }
         return $this->content;
     }
-
      /**
       * Setter pour le nombre de vues.
       * @param int $views
       */
-    public function setViews(int $views) : void
+    public function setViewsCounter(int $views) : void
     {
-        $this->views = $views;
+        $this->viewsCounter = $views;
     }
 
      /**
       * Getter pour le nombre de vues.
       * @return int
       */
-    public function getViews() : int
+    public function getViewsCounter() : int
     {
-        return $this->views;
+        return $this->viewsCounter;
     }
      /**
       * Setter pour le nombre de commentaires de l'article.
@@ -106,7 +99,6 @@
      {
          $this->commentsNumber = $commentsNumber;
      }
-
      /**
       * Getter pour le nombre de commentaires de l'article.
       * @return int
@@ -115,7 +107,6 @@
      {
          return $this->commentsNumber;
      }
-
     /**
      * Setter pour la date de création. Si la date est une string, on la convertit en DateTime.
      * @param string|DateTime $dateCreation
@@ -129,7 +120,6 @@
         }
         $this->dateCreation = $dateCreation;
     }
-
     /**
      * Getter pour la date de création.
      * Grâce au setter, on a la garantie de récupérer un objet DateTime.
@@ -139,7 +129,6 @@
     {
         return $this->dateCreation;
     }
-
     /**
      * Setter pour la date de mise à jour. Si la date est une string, on la convertit en DateTime.
      * @param string|DateTime $dateUpdate
@@ -153,7 +142,6 @@
         }
         $this->dateUpdate = $dateUpdate;
     }
-
     /**
      * Getter pour la date de mise à jour.
      * Grâce au setter, on a la garantie de récupérer un objet DateTime ou null
