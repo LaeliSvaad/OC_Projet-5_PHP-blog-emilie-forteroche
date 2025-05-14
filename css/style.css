@@ -273,6 +273,10 @@ a.info {
     color: var(--quoteColor);
 }
 
+.delCommButton{
+    margin: 10px;
+}
+
 /* On redéfinit certaines parties du "info" pour l'affichage dans les commentaires */
 .detailComment .info {
     margin: 5px 0 5px 0;
