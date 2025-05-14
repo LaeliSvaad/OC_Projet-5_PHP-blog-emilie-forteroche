@@ -305,8 +305,23 @@ a.info {
 
 /**
  * Partie admin
- */ 
+ */
+.adminWelcomingMessage {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--commentColor);
+}
+.adminMenu {
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid var(--commentColor);
+    background-color: var(--commentPaleColor);
+    width: 60%;
+    text-align: center;
+    font-weight: bold;
 
+}
 .adminArticle {
     margin-bottom: 20px;
     border: 1px solid var(--commentColor);
@@ -377,6 +392,9 @@ th, td {
     width: 25px;
 }
 
+.commentsModerationCell{
+    text-wrap: nowrap;
+}
 /** 
  * Footer global de la page.
  */
