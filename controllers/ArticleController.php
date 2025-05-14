@@ -9,7 +9,7 @@ class ArticleController
     public function showHome() : void
     {
         $articleManager = new ArticleManager();
-        $articles = $articleManager->getAllArticles(NULL, NULL);
+        $articles = $articleManager->getAllArticles();
 
         $view = new View("Accueil");
         $view->render("home", ['articles' => $articles]);
