@@ -43,28 +43,28 @@
         <th>
             <div class="theadContent">
                 <span>Vues</span>
-                <?php if($sort != "views"){
-                    echo'<a href="index.php?action=monitorArticles&sort=views&order=ASC" title="Tri croissant par vues">';
+                <?php if($sort != "views_counter"){
+                    echo'<a href="index.php?action=monitorArticles&sort=views_counter&order=ASC" title="Tri croissant par vues">';
                     echo'<img class="sortIcon" src="icones/sort-ASC-inactive.png" alt="trier-par-ordre-croissant"/>';
                     echo'</a>';
-                    echo'<a href="index.php?action=monitorArticles&sort=views&order=DESC" title="Tri décroissant par vues">';
+                    echo'<a href="index.php?action=monitorArticles&sort=views_counter&order=DESC" title="Tri décroissant par vues">';
                     echo'<img class="sortIcon" src="icones/sort-DESC-inactive.png" alt="trier-par-ordre-decroissant"/>';
                     echo'</a>';
                 }
                 else{
                     if($order == "ASC"){
-                        echo'<a href="index.php?action=monitorArticles&sort=views&order=ASC" title="Tri croissant par vues">';
+                        echo'<a href="index.php?action=monitorArticles&sort=views_counter&order=ASC" title="Tri croissant par vues">';
                         echo'<img class="sortIcon" src="icones/sort-ASC-active.png" alt="trier-par-ordre-croissant"/>';
                         echo'</a>';
-                        echo'<a href="index.php?action=monitorArticles&sort=views&order=DESC" title="Tri décroissant par vues">';
+                        echo'<a href="index.php?action=monitorArticles&sort=views_counter&order=DESC" title="Tri décroissant par vues">';
                         echo'<img class="sortIcon" src="icones/sort-DESC-inactive.png" alt="trier-par-ordre-decroissant"/>';
                         echo'</a>';
                     }
                     else if($order == "DESC"){
-                        echo'<a href="index.php?action=monitorArticles&sort=views&order=ASC" title="Tri croissant par vues">';
+                        echo'<a href="index.php?action=monitorArticles&sort=views_counter&order=ASC" title="Tri croissant par vues">';
                         echo'<img class="sortIcon" src="icones/sort-ASC-inactive.png" alt="trier-par-ordre-croissant"/>';
                         echo'</a>';
-                        echo'<a href="index.php?action=monitorArticles&sort=views&order=DESC" title="Tri décroissant par vues">';
+                        echo'<a href="index.php?action=monitorArticles&sort=views_counter&order=DESC" title="Tri décroissant par vues">';
                         echo'<img class="sortIcon" src="icones/sort-DESC-active.png" alt="trier-par-ordre-decroissant"/>';
                         echo'</a>';
                     }
@@ -136,7 +136,7 @@
     <?php foreach ($articles as $article) { ?>
         <tr class="tableLine">
             <td><?= $article->getTitle() ?></td>
-            <td><?= $article->getViews() ?> vues</td>
+            <td><?= $article->getViewsCounter() ?> vues</td>
             <td><?= $article->getCommentsNumber() ?> commentaires</td>
             <td>Publié le <?= ucfirst(Utils::convertDateToFrenchFormat($article->getDateCreation())) ?></td>
         </tr>
