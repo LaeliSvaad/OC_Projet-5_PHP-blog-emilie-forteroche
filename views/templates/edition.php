@@ -1,6 +1,6 @@
 <?php
 /**
- * Affichage de la partie admin : liste des articles avec un bouton "modifier" pour chacun.
+ * Affichage de la partie admin : liste des articles avec un bouton "modifier"  / "suprrimer" pour chacun.
  * Et un formulaire pour ajouter un article.
  */
 ?>

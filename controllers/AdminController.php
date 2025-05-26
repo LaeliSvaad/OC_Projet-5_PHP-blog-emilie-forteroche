@@ -13,8 +13,7 @@ class AdminController {
     {
         // On vérifie que l'utilisateur est connecté.
         $this->checkIfUserIsConnected();
-
-
+        
         // On affiche la page d'administration.
         $view = new View("Administration");
         $view->render("admin");

@@ -1,3 +1,11 @@
+<?php
+/**
+ * Ce fichier est le template affichant les commentaires pour l'article choisi, et permettant d'effectuer des suppressions.
+ * Variable: $comments Array : tableau contenant les commentaires
+ */
+
+?>
+
 <div class="comments">
     <h2 class="commentsTitle">Vos Commentaires</h2>
 <?php
