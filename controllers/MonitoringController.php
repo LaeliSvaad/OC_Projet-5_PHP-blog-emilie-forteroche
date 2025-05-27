@@ -9,6 +9,7 @@ class MonitoringController{
 
     public function showMonitoring() : void
     {
+        //variables déterminant l'ordre de tri des articles
         $sort = Utils::request('sort', 'date_creation');
         $order = Utils::request('order', 'DESC');
 

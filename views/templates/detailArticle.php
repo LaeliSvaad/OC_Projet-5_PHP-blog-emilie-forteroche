@@ -1,7 +1,7 @@
 <?php
     /**
      * Ce template affiche un article et ses commentaires.
-     * Il affiche également un formulaire pour ajouter un commentaire.
+     * Il affiche également un formulaire pour ajouter / supprimer un commentaire.
      */
 ?>
 

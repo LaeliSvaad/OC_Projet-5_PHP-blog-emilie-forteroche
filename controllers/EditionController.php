@@ -10,14 +10,11 @@ class EditionController {
 */
     public function editArticles() : void
     {
-    // On vérifie que l'utilisateur est connecté.
-       /* $this->checkIfUserIsConnected();*/
-
-    // On récupère les articles.
+        // On récupère les articles.
         $articleManager = new ArticleManager();
         $articles = $articleManager->getAllArticles();
 
-    // On affiche la page d'administration.
+        // On affiche la page d'administration.
         $view = new View("Administration");
         $view->render("edition", [
             'articles' => $articles
@@ -30,8 +27,6 @@ class EditionController {
      */
     public function showUpdateArticleForm() : void
     {
-        /*$this->checkIfUserIsConnected();*/
-
         // On récupère l'id de l'article s'il existe.
         $id = Utils::request("id", -1);
 
@@ -58,8 +53,6 @@ class EditionController {
      */
     public function updateArticle() : void
     {
-        /*$this->checkIfUserIsConnected();*/
-
         // On récupère les données du formulaire.
         $id = Utils::request("id", -1);
         $title = Utils::request("title");
@@ -82,10 +75,9 @@ class EditionController {
         $articleManager = new ArticleManager();
         $articleManager->addOrUpdateArticle($article);
 
-        // On redirige vers la page d'administration.
-        Utils::redirect("admin");
+        // On redirige vers la page d'administration des articles.
+        Utils::redirect("manageArticles");
     }
-
 
     /**
      * Suppression d'un article.
@@ -93,15 +85,13 @@ class EditionController {
      */
     public function deleteArticle() : void
     {
-       /* $this->checkIfUserIsConnected();*/
-
         $id = Utils::request("id", -1);
 
         // On supprime l'article.
         $articleManager = new ArticleManager();
         $articleManager->deleteArticle($id);
 
-        // On redirige vers la page d'administration.
-        Utils::redirect("admin");
+        // On redirige vers la page d'administration des articles.
+        Utils::redirectReferer();
     }
 }

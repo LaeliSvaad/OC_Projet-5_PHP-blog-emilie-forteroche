@@ -53,6 +53,7 @@ class CommentController
         $view = new View("Moderation des commentaires");
         $view->render("moderateComments", ['comments' => $comments]);
     }
+
     public function deleteComment() : void{
         $id = Utils::request("id");
         $commentManager = new CommentManager();

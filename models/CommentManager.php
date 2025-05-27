@@ -56,18 +56,6 @@ class CommentManager extends AbstractEntityManager
 
     /**
      * Supprime un commentaire.
-     * @param Comment $comment : l'objet Comment à supprimer.
-     * @return bool : true si la suppression a réussi, false sinon.
-     */
-    /*public function deleteComment(Comment $comment) : bool
-    {
-        $sql = "DELETE FROM comment WHERE id = :id";
-        $result = $this->db->query($sql, ['id' => $comment->getId()]);
-        return $result->rowCount() > 0;
-    }*/
-
-    /**
-     * Supprime un commentaire.
      * @param int $id : l'id du commentaire à supprimer.
      * @return bool : true si la suppression a réussi, false sinon.
      */
