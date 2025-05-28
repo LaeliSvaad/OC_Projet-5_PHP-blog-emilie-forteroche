@@ -15,7 +15,7 @@ class MonitoringController{
 
         // On récupère les articles.
         $articleManager = new ArticleManager();
-        $articles = $articleManager->getAllArticles($sort, $order);
+        $articles = $articleManager->getAllArticles();
 
         // On affiche la page de monitoring.
         $view = new View("Monitoring");
